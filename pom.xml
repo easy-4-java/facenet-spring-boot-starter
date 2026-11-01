@@ -436,6 +436,9 @@
         <commons-io.version>2.6</commons-io.version>
         <fastjson.version>1.2.75</fastjson.version>
         <jython.version>2.7.0</jython.version>
+        <opencv.version>4.3.0-1.5.3</opencv.version>
+        <openpnp-opencv.version>4.3.0-0</openpnp-opencv.version>
+        <lombok.version>1.18.36</lombok.version>
 
     </properties>
 
@@ -513,6 +516,23 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${commons-io.version}</version>
+        </dependency>
+        <!-- JavaCPP bindings and matching native OpenCV libraries used by smooth/match. -->
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>opencv-platform</artifactId>
+            <version>${opencv.version}</version>
+        </dependency>
+        <!-- Official OpenCV Java API used by face detection. -->
+        <dependency>
+            <groupId>org.openpnp</groupId>
+            <artifactId>opencv</artifactId>
+            <version>${openpnp-opencv.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
         <!-- For Commons Lang3 -->
         <dependency>
