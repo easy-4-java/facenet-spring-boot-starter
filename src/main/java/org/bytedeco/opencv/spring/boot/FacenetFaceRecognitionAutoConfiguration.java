@@ -4,8 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
-import org.bytedeco.javacpp.Loader;
-import org.bytedeco.opencv.opencv_java;
+import nu.pattern.OpenCV;
 import org.opencv.objdetect.CascadeClassifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -23,7 +22,7 @@ public class FacenetFaceRecognitionAutoConfiguration {
 	private Resource classifier;
 	
 	static {
-		Loader.load(opencv_java.class);
+		OpenCV.loadLocally();
 		//new opencv_java();
 	}
 	
