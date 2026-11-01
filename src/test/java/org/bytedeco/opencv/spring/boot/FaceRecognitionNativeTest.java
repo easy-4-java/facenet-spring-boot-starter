@@ -1,9 +1,11 @@
 package org.bytedeco.opencv.spring.boot;
 
 import org.bytedeco.javacpp.Loader;
-import org.bytedeco.opencv.opencv_java;
+import org.bytedeco.opencv.global.opencv_imgcodecs;
+import org.bytedeco.opencv.global.opencv_imgproc;
 import org.junit.jupiter.api.Test;
 import org.opencv.objdetect.CascadeClassifier;
+import nu.pattern.OpenCV;
 
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -17,7 +19,9 @@ class FaceRecognitionNativeTest {
 
     @Test
     void loadsBothOpenCvJavaApiAndBundledClassifier() throws Exception {
-        assertNotNull(Loader.load(opencv_java.class));
+        OpenCV.loadShared();
+        assertNotNull(Loader.load(opencv_imgcodecs.class));
+        assertNotNull(Loader.load(opencv_imgproc.class));
         Path classifierFile = Files.createTempFile("facenet-classifier-", ".xml");
         try {
             try (InputStream source = getClass().getResourceAsStream(
