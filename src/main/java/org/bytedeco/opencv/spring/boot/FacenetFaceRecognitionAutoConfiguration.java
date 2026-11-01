@@ -22,7 +22,7 @@ public class FacenetFaceRecognitionAutoConfiguration {
 	private Resource classifier;
 	
 	static {
-		OpenCV.loadShared();
+		OpenCV.loadLocally();
 		//new opencv_java();
 	}
 	
