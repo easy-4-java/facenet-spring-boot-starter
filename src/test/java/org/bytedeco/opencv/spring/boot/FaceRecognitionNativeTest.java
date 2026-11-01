@@ -19,7 +19,7 @@ class FaceRecognitionNativeTest {
 
     @Test
     void loadsBothOpenCvJavaApiAndBundledClassifier() throws Exception {
-        OpenCV.loadShared();
+        OpenCV.loadLocally();
         assertNotNull(Loader.load(opencv_imgcodecs.class));
         assertNotNull(Loader.load(opencv_imgproc.class));
         Path classifierFile = Files.createTempFile("facenet-classifier-", ".xml");
